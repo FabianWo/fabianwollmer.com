@@ -12,40 +12,44 @@
   const timeline = document.querySelector('.timeline');
   const menuOpenButton = document.querySelector('.nav__menu-button');
   const navMenu = document.querySelector('.nav__list');
+  const menuButtonText = document.querySelector(".menu-button-text");
+  const closeMenuStripes = document.querySelector(".menu-button-stripes");
   
   // ----- METHODS -----
 
-  // toggle navigation
-  function toggleNav() {
-    const display = window.getComputedStyle(menuOpenButton).getPropertyValue('display');
-    if (display === 'flex') {
-      menuOpenButton.classList.add('close');
-      menuOpenButton.classList.remove('open');
+  // toggle navigation and mobilemenubutton
+  function toggleNav(e) {
+    const display = navMenu.classList.contains("close");
+    console.log(display);
+    console.log(e.target);
+    if (display === true) {
+      menuButtonText.classList.add('close');
+      menuButtonText.classList.remove('open');
+      navMenu.classList.add('open');
+      navMenu.classList.remove('close');
     } else {
-      menuOpenButton.classList.add('open');
-      menuOpenButton.classList.remove('close');
+      menuButtonText.classList.add('open');
+      menuButtonText.classList.remove('close');
+      navMenu.classList.remove('open');
+      navMenu.classList.add('close');
     }
-    navMenu.classList.add('open');
-    navMenu.classList.remove('close');
   }
 
   function showmenuButton(e) {
-    if (
-      (document.body.clientWidth < 800 && e.target.tagName === 'UL') || 
-      (document.body.clientWidth < 800 && e.type === 'resize') ||
-      e.type === 'click'
-      ) {
-      menuOpenButton.classList.add('open');
-      menuOpenButton.classList.remove('close');
-      navMenu.classList.add('close');
-      navMenu.classList.remove('open');
-    } else if (document.body.clientWidth > 800) {
-      menuOpenButton.classList.add('close');
-      menuOpenButton.classList.remove('open');
+    if (document.body.clientWidth > 800) {
+      menuButtonText.classList.add('close');
+      menuButtonText.classList.remove('open');
       navMenu.classList.add('open');
       navMenu.classList.remove('close');
-      console.log('click');
-      
+    }
+    if (
+      (document.body.clientWidth < 800 && e.type === 'resize') ||
+      (document.body.clientWidth < 800 && e.target.tagName !== "UL")
+      ) {
+      menuButtonText.classList.add('open');
+      menuButtonText.classList.remove('close');
+      navMenu.classList.add('close');
+      navMenu.classList.remove('open');
     }
   }
 
@@ -125,6 +129,8 @@
   
   // ----- INITIALIZERS/LISTENERS -----
 
+  // SMOOTH SCROLL
+
   // window.addEventListener('wheel', (e) => {
   //   window.scroll({
   //     behavior: "smooth",
@@ -132,7 +138,11 @@
   //   });
   // }, { passive: false });
 
-  menuOpenButton.addEventListener('click', toggleNav);
+  closeMenuStripes.addEventListener('click', toggleNav);
+
+  [...navMenu.children].forEach(el => {
+    el.addEventListener('click', showmenuButton);
+  });
 
   window.addEventListener('resize', showmenuButton);
 
@@ -153,9 +163,5 @@
 
   contactEmail.addEventListener('click', emailToClipboard);
 
-  navMenu.addEventListener("pointerout", showmenuButton);
-  [...navMenu.children].forEach(el => {
-    el.addEventListener('click', showmenuButton);
-  });
 
 })();

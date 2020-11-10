@@ -137,9 +137,8 @@ body {
 .nav {
   display: flex;
   position: relative;
-  justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 0;
+  padding: 1.5rem 0;
   width: 100%;
 }
 
@@ -148,6 +147,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right: auto;
 }
 
 .logo-container:hover .logo {
@@ -156,6 +156,7 @@ body {
 
 .nav__list {
   display: flex;
+  margin-left: auto;
   padding: 1px;
 }
 
@@ -170,10 +171,8 @@ body {
 
 .nav__menu-button {
   margin: 1rem 0;
-  position: absolute;
-  right: 0%;
+  padding: 0;
   cursor: pointer;
-  justify-content: space-between;
   display: none;
   opacity: 0;
   transition: opacity 0.3s;
@@ -201,10 +200,12 @@ body {
 
 .menu-button-stripe:first-child {
   transition: background-color .3s ease-out;
+  transition: transform 0.3s;
 }
 
 .menu-button-stripe:nth-child(0n+2) {
   transition: background-color .8s ease-out;
+  transition: transform 0.3s;
 }
 
 .open {
@@ -213,8 +214,8 @@ body {
 }
 
 .close {
-  opacity: 0 !important;
-  /* z-index: -10; */
+  /* opacity: 0 !important; */
+  display: none !important;
 }
 
 /* ----- MAIN ----- */
@@ -645,22 +646,49 @@ body {
   /* nav */
 
   .nav {
+    /* margin: 1rem 0; */
+  }
+  
+  .nav__list {
+    display: none;
     margin: 0;
+    /* position: absolute; */
+    /* right: 0; */
+    /* top: 0; */
+    opacity: 0;
+    transition: all 0.3s;
+  }
+  
+  .nav__list-item {
+    min-width: 0;
   }
 
   .nav__menu-button {
     display: flex;
     opacity: 100;
+    margin-top: 0;
+    margin-bottom: 0;
+    align-self: center;
   }
 
-  .nav__list {
-    display: none;
-    margin-top: 1.5rem;
+  .nav__link.close + .menu-button-stripes {
+    position: relative;
+    justify-content: center;
+    margin-left: 0;
+    height: 30px;
+    width: 30px;
+  }
+
+  .nav__link.close + .menu-button-stripes .menu-button-stripe:first-child {
+    transform: rotate(45deg);
     position: absolute;
-    right: 0;
-    top: 0;
-    opacity: 0;
-    transition: all 0.3s;
+    top: 13px;
+  }
+  
+  .nav__link.close + .menu-button-stripes .menu-button-stripe:nth-child(0n+2) {
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 13px;
   }
   
   /* hero section */
@@ -743,9 +771,22 @@ body {
   
   /* navigation section */
 
+  .nav {
+    align-items: flex-start;
+  }
+
+  .logo-container {
+    /* align-self: center; */
+  }
+
   .nav__list {
     flex-direction: column;
+    margin: 0;
     background-color: #fffcfbed;
+  }
+
+  .nav__link.close + .menu-button-stripes {
+    margin-top: -4.5rem;
   }
 
   /* hero section */
