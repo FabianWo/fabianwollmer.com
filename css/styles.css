@@ -573,13 +573,16 @@ body {
 }
 
 .footer .logo-container {
-  /* margin-right: auto; */
-  /* justify-self: center; */
+  margin-right: 0;
+  margin-left: 0;
+  justify-self: center;
 }
 
 .footer .nav__list {
   flex-wrap: wrap;
   justify-content: center;
+  display: flex;
+  opacity: 100;
 }
 
 .copyright {
@@ -775,10 +778,6 @@ body {
     align-items: flex-start;
   }
 
-  .logo-container {
-    /* align-self: center; */
-  }
-
   .nav__list {
     flex-direction: column;
     margin: 0;
@@ -799,6 +798,12 @@ body {
 
   .image-wrapper {
     min-width: 0;
+  }
+
+  /* footer */
+
+  .footer.nav {
+    align-items: center;
   }
 
 }
