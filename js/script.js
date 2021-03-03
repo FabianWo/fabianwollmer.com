@@ -95,12 +95,12 @@
     // console.log(containerStops[1]);
     // console.log(bodyHeight);
     if (bodyHeight > containerStops[0] && bodyHeight < containerStops[1]) {
-      timeline.firstElementChild.textContent = '02';
+      timeline.firstElementChild.textContent = '2';
     } else if (bodyHeight > containerStops[1]) {
       // console.log('now');
-      timeline.firstElementChild.textContent = '03';
+      timeline.firstElementChild.textContent = '3';
     } else {
-      timeline.firstElementChild.textContent = '01';
+      timeline.firstElementChild.textContent = '1';
     }
   }
   
@@ -123,8 +123,8 @@
   // quick click to copy email to clipboard, switch text of popup
   function emailToClipboard() {
     navigator.clipboard.writeText('Fabian.wollmer@gmail.com');
-    contactEmail.firstElementChild.textContent = 'copied!';
-    setTimeout(() => contactEmail.firstElementChild.textContent = 'click to copy', 2000);
+    contactEmail.firstElementChild.textContent = 'copied !';
+    setTimeout(() => contactEmail.firstElementChild.textContent = 'click to copy e-mail', 2500);
   }
   
   // ----- INITIALIZERS/LISTENERS -----
