@@ -92,12 +92,10 @@
   function timelineCount() {
     const containerStops = [mainProjectsContainer.offsetTop, mainContactContainer.offsetTop];
     const bodyHeight = Math.abs(document.body.getBoundingClientRect().y) +300;
-    // console.log(containerStops[1]);
-    // console.log(bodyHeight);
+
     if (bodyHeight > containerStops[0] && bodyHeight < containerStops[1]) {
       timeline.firstElementChild.textContent = '2';
     } else if (bodyHeight > containerStops[1]) {
-      // console.log('now');
       timeline.firstElementChild.textContent = '3';
     } else {
       timeline.firstElementChild.textContent = '1';
@@ -129,15 +127,6 @@
   
   // ----- INITIALIZERS/LISTENERS -----
 
-  // SMOOTH SCROLL
-
-  // window.addEventListener('wheel', (e) => {
-  //   window.scroll({
-  //     behavior: "smooth",
-  //     top: window.pageYOffset + e.deltaY
-  //   });
-  // }, { passive: false });
-
   closeMenuStripes.addEventListener('click', toggleNav);
 
   [...navMenu.children].forEach(el => {
@@ -153,11 +142,12 @@
     timelineLength();
   });
 
-  projectImages[2].addEventListener('pointerover', () => {
-    placeProjectHeading.placebottom(true);
+
+  projectImages[projectImages.length-1].addEventListener('pointerover', () => {
+    // placeProjectHeading.placebottom(true);
   });
-  projectImages[2].addEventListener('pointerout', () => {
-    placeProjectHeading.placebottom(false);
+  projectImages[projectImages.length-1].addEventListener('pointerout', () => {
+    // placeProjectHeading.placebottom(false);
     timelineLength();
   });
 
