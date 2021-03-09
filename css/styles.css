@@ -7,11 +7,8 @@
 --- rough Organization rules ---
 
 1. general styles: root, body, html, container etc.
-2. reusable styles, content styles (font, color, line, ...)
+2. utility styles (font, color, line, ...)
 3. single purpose styles
-   1) layout/display properties  -> position on the page
-   2) box styling properties     -> box styles
-   3) content + transition styles
 
 every section is ordered acccording to html structure
 naming convention used: BEM
@@ -26,7 +23,7 @@ naming convention used: BEM
   --color-darkshade: #282828;
   --color-dark: #0a0a0a;
 
-  --color-bg: #fffcfb;
+  --color-bg: #fffbfb;
   --color-cinnabar: #E05048;
   --color-mainred: #D92E25;
   --color-mainblue: #3d4b70;
@@ -102,7 +99,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin-top: 4rem;
+  margin-top: 6rem;
 }
 
 .h1-heading {
