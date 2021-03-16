@@ -24,15 +24,16 @@ naming convention used: BEM
   --color-dark: #0a0a0a;
 
   --color-bg: #fffefe;
+  --color-Amaranth: #e71c52;
   --color-cinnabar: #E05048;
   --color-mainred: #D92E25;
-  --color-mainblue: #3d4b70;
+  --color-mainblue: #3a476d;
   --color-lightblue: #576A9E;
 }
 
 * {
   box-sizing: border-box;
-  color: #3d4b70;
+  color: var(--color-mainblue);
   list-style-type: none;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
@@ -69,7 +70,7 @@ body {
 /* :focus events / site navigation with TAB*/
 .logo:focus, .nav__link:focus {
   outline: none;
-  color: var(--color-cinnabar);
+  color: var(--color-Amaranth);
 }
 
 /* ----- COMPONENT STYLES ----- */
@@ -89,7 +90,7 @@ body {
 }
 
 .nav__list-item:hover .nav__link {
-  color: var(--color-cinnabar);
+  color: var(--color-Amaranth);
 }
 
 /* main */
@@ -118,7 +119,7 @@ body {
 }
 
 .call-to-action {
-  color: var(--color-cinnabar);
+  color: var(--color-Amaranth);
   white-space: nowrap;
   font-size: 1.6rem;
   font-weight: 700;
@@ -160,7 +161,7 @@ body {
 }
 
 .logo-container:hover .logo {
-  color: var(--color-cinnabar);
+  color: var(--color-Amaranth);
 }
 
 .nav__list {
@@ -206,7 +207,7 @@ body {
 }
 
 .nav__menu-button:hover .menu-button-stripe {
-  background-color: var(--color-cinnabar);
+  background-color: var(--color-Amaranth);
 }
 
 .menu-button-stripe:first-child {
@@ -258,7 +259,7 @@ body {
   min-width: 43px;
   border-top-left-radius: 60px;
   border-bottom-left-radius: 60px;
-  border: 3px solid var(--color-cinnabar);
+  border: 3px solid var(--color-Amaranth);
   background-color: #ffe6e614;
   padding-left: 6px;
   font-weight: 600;
@@ -278,7 +279,7 @@ body {
 }
 
 .main__section-hero {
-  flex-direction: row;
+  flex-direction: row-reverse;
   gap: 2rem;
 }
 
@@ -299,9 +300,11 @@ body {
 }
 
 .main__illustration {
-  max-width: clamp(130px, 20vw, 220px);
-  object-fit: contain;
+  max-width: clamp(120px, 22vw, 280px);
+  object-fit: cover;
   display: block;
+  box-shadow: 4px 4px 12px 5px hsla(0, 0%, 16%, 0.157);
+  border-radius: 100000px;
 }
 
 .main__cto {
@@ -373,7 +376,7 @@ body {
   margin-top: -2rem;
   width: 4px;
   border-radius: 10px;
-  background-color: var(--color-cinnabar);
+  background-color: var(--color-Amaranth);
   transition: height 0.3s;
 }
 
@@ -389,7 +392,6 @@ body {
   grid-area: work1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   gap: 1rem;
 }
@@ -403,7 +405,6 @@ body {
 }
 
 .project__heading {
-  align-self: flex-start;
 }
 
 .project-image__seemore {
@@ -418,7 +419,7 @@ body {
 
 .project__image-wrapper:hover .project-image__seemore {
   opacity: 1;
-  /* color: var(--color-cinnabar); */
+  /* color: var(--color-Amaranth); */
   /* color: white; */
 }
 
@@ -428,7 +429,6 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  align-self: flex-start;
   width: max(375px, 70%);
   max-width: 100%;
   background-color: white;
@@ -454,9 +454,26 @@ body {
   cursor: pointer;
 }
 
+.project__technologies-used {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 550px;
+  gap: 0.5rem;
+}
+
+.tech-used {
+  white-space: nowrap;
+  color: rgb(0, 0, 0);
+  background-color: #e0e0e0;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  letter-spacing: -0.025em;
+  padding: 0.5rem 0.9rem;
+  border-radius: 100px;
+  width: min-content;
+}
+
 .project-description {
   display: inline-block;
-  align-self: flex-start;
   max-width: 600px;
 }
 
@@ -519,7 +536,7 @@ body {
 }
 
 .icon__wrapper:hover  .icon__description {
-  color: var(--color-cinnabar);
+  color: var(--color-Amaranth);
 }
 
 .contact__email {
@@ -535,7 +552,7 @@ body {
 
 .contact__email:hover {
   cursor: pointer;
-  color: var(--color-cinnabar);
+  color: var(--color-Amaranth);
 }
 
 .copy__email {
@@ -589,6 +606,7 @@ body {
 
 .copyright {
   margin-top: 0.75rem;
+  font-size: 1rem;
   white-space: nowrap;
 }
 
@@ -702,10 +720,6 @@ body {
     font-size: 1.4rem;
   }
   
-  .main__illustration {
-    display: none;
-  }
-  
   /* project section */
 
   .main__section-projects {
@@ -765,6 +779,11 @@ body {
 
   .main__section-hero {
     margin-top: 0.5rem;
+    flex-direction: column;
+  }
+
+  .main__illustration {
+    align-self: center;
   }
 
   /* project section */
