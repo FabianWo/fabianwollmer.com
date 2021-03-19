@@ -404,9 +404,6 @@ body {
   grid-area: work3;
 }
 
-.project__heading {
-}
-
 .project-image__seemore {
   position: absolute;
   z-index: 6;
