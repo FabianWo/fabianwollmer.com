@@ -591,11 +591,11 @@ body {
   justify-self: center;
 }
 
-.footer .nav__list {
+.nav__list-footer {
   flex-wrap: wrap;
   justify-content: center;
   display: flex;
-  opacity: 100;
+  margin-left: 0;
 }
 
 .copyright {
